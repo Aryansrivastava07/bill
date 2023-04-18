@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bill</h1>
+        <nav>
+            <span class="active">Add Expenditure</span>
+            <span><a href="https://script.google.com/macros/s/AKfycbznKMP8bhpQetJrZVm3Ffjif_UZPCHtzhX9Tz89OiMtTUcOZmVzhag6q9nl9r2USiWL/exec">View Bill</a></span>
+            <span class="dropdown">View Balance
+                <div class="dropdown-content">
+                    Go to bill page to check your balance 😊
+                </div>
+            </span>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <h2><u>Add Expentiture</u></h2>
+            <form name="submit-to-google-sheet" method="POST" id="form">
+                <label for="item">Name : <span class="name"></span></label><input type="text" name="item" placeholder="Name" autocomplete="none" required>
+                <label for="price">Price : <span class="price"></span></label><input type="number" name="price" placeholder="Price" autocomplete="none" required>
+                <label for="date">Date : <span class="date"></span></label><input type="datetime-local" name="date" required >
+                <input type="submit">
+            </form>
+        </div>
+        <div class="pop" id="pop">
+            <div class="success">
+                <p id="successmes">Your Data has been stored</p>
+                <p id="errormes" >Some error occured while storing your data</p>
+                <input type="button" id="close" value="close" />
+                <input type="button" value="View Bill" id="expenditure" />
+            </div>
+        </div>
+    </section>
+
+</body>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz5uePuGWDj7zFQvguv83USWkugn3_Xn3Z4iA1SNvWwnXf-gDngcggo1VlLMCfoaJkZ/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response =>
+        {
+            document.getElementById('pop').classList.add("animup");
+            document.getElementById('errormes').style.cssText='display:none;';
+
+        })
+        .catch(error =>  {
+            document.getElementById('pop').classList.add("animup");
+            document.getElementById('successmes').style.cssText='display:none;';
+        })
+    })
+document.getElementById('close').onclick = function () {
+    document.getElementById("form").reset();
+    document.getElementById("pop").classList.remove("animup");
+  };
+   
+  </script>
+
+</html>
