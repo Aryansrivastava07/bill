@@ -1,0 +1,85 @@
+@media (max-width:600px){
+    header{
+        width: fit-content;
+        overflow: hidden;
+    }
+    body{
+        background-position: center;
+    }
+    nav span {
+        display: none;
+    }
+    .hamburger{
+       opacity: 0;
+       transform: translateX(18px);
+    }
+    .hamburger,.hamburger~label{
+        display: block;
+    }
+    .hamburger:checked~nav span{
+        display: block;
+        border: none;
+        font-size: 20px;
+    }
+    .hamburger:checked~nav{
+        background-color: rgba(0, 0, 0, 0.31);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 40px;
+        position: absolute;
+        gap: 20px;
+        top: 10vh;
+        height: 90%;
+        width: 100%;
+        place-items: center;
+        backdrop-filter: blur(20px);
+        z-index: 100;
+        transform: translateX(-40px);
+        padding-top: 40%;
+    }
+    .hamburger~label{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+
+    }
+    .line1,.line2{
+        width: 2px;
+        height: 20px;
+        background-color: rgb(255, 254, 254);
+    }
+    .line1{
+        transform: translateX(-5px);
+    }
+    .hamburger:checked~label .line1{
+        rotate: 45deg;
+        transform: translateX(0px);
+        background-color: rgba(255, 254, 254, 0.63);
+    }
+    .hamburger:checked~label .line2{
+        rotate: -45deg;
+        transform: translate(-1px,-1px);
+        background-color: rgba(255, 254, 254, 0.63);
+    }
+    .dropdown-content{
+        transform:translateX(-120px);
+    }
+    .container{
+        margin: 10vh auto;
+        padding: 30px;
+    }
+    .success{
+        position: fixed;
+        height:max-content;
+        width: fit-content;
+        padding: 40px 10px;
+        font-size: 20px;
+        outline-offset: -5px;
+        top:20vh;
+        left: 1vw;
+    }
+    form:has(input[name="item"]:focus) .name,form:has(input[name="price"]:focus) .price,form:has(input[name="date"]:focus) .date{
+        width: 210px;
+        left: 105px;
+    }
+}

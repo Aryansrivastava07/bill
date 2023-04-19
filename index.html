@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
     <header>
         <h1>Bill</h1>
+        <input type="checkbox" class="hamburger" name="check"><label for="check"><div class="line1"></div><div class="line2"></div></label>
         <nav>
             <span class="active">Add Expenditure</span>
             <span><a href="https://script.google.com/macros/s/AKfycbznKMP8bhpQetJrZVm3Ffjif_UZPCHtzhX9Tz89OiMtTUcOZmVzhag6q9nl9r2USiWL/exec">View Bill</a></span>
@@ -30,12 +32,12 @@
                 <input type="submit">
             </form>
         </div>
-        <div class="pop" id="pop">
+        <div class="pop animup" id="pop">
             <div class="success">
                 <p id="successmes">Your Data has been stored</p>
                 <p id="errormes" >Some error occured while storing your data</p>
                 <input type="button" id="close" value="close" />
-                <input type="button" value="View Bill" id="expenditure" />
+                <a href="https://script.google.com/macros/s/AKfycbznKMP8bhpQetJrZVm3Ffjif_UZPCHtzhX9Tz89OiMtTUcOZmVzhag6q9nl9r2USiWL/exec"><input type="button" value="View Bill" id="expenditure" /></a>
             </div>
         </div>
     </section>
