@@ -1,6 +1,7 @@
 @media (max-width:600px){
     header{
         width: fit-content;
+        max-width: 90vw;
         overflow: hidden;
     }
     body{
@@ -11,7 +12,7 @@
     }
     .hamburger{
        opacity: 0;
-       transform: translateX(18px);
+       transform: translateX(30px);
     }
     .hamburger,.hamburger~label{
         display: block;
@@ -63,10 +64,13 @@
     }
     .dropdown-content{
         transform:translateX(-120px);
+        word-wrap: break-word;
     }
     .container{
         margin: 10vh auto;
         padding: 30px;
+        max-width: 90vw;
+        overflow: scroll;
     }
     .success{
         position: fixed;

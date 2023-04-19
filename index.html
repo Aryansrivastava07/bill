@@ -29,10 +29,10 @@
                 <label for="item">Name : <span class="name"></span></label><input type="text" name="item" placeholder="Name" autocomplete="none" required>
                 <label for="price">Price : <span class="price"></span></label><input type="number" name="price" placeholder="Price" autocomplete="none" required>
                 <label for="date">Date : <span class="date"></span></label><input type="datetime-local" name="date" required >
-                <input type="submit">
+                <input type="submit" id="submit">
             </form>
         </div>
-        <div class="pop animup" id="pop">
+        <div class="pop" id="pop">
             <div class="success">
                 <p id="successmes">Your Data has been stored</p>
                 <p id="errormes" >Some error occured while storing your data</p>
@@ -65,6 +65,12 @@ document.getElementById('close').onclick = function () {
     document.getElementById("form").reset();
     document.getElementById("pop").classList.remove("animup");
   };
+  form.addEventListener("keypress", e => { 
+    if (e.key === "Enter"){
+        e.preventDefault();
+        document.getElementById("submit").click();
+    }
+  })
    
   </script>
 
