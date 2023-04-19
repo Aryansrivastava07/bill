@@ -63,14 +63,14 @@
         background-color: rgba(255, 254, 254, 0.63);
     }
     .dropdown-content{
-        transform:translateX(-120px);
-        word-wrap: break-word;
+        transform:translateX(-35vw);
+        width: 100vw;
     }
     .container{
         margin: 10vh auto;
-        padding: 30px;
-        max-width: 90vw;
-        overflow: scroll;
+        padding: 30px 10px;
+        max-width: 85vw;
+        overflow: hidden;
     }
     .success{
         position: fixed;
@@ -79,11 +79,19 @@
         padding: 40px 10px;
         font-size: 20px;
         outline-offset: -5px;
-        top:20vh;
-        left: 1vw;
     }
     form:has(input[name="item"]:focus) .name,form:has(input[name="price"]:focus) .price,form:has(input[name="date"]:focus) .date{
-        width: 210px;
-        left: 105px;
+        width: 55vw;
+        left: 19vw;
+    }
+    form{
+        gap: 8px;
+        grid-template-columns: 20vw 55vw;
+    }
+    form *{
+        overflow: hidden;
+    }
+    input:is(:not([type="button"],[type="submit"])){
+        width: 55vw;
     }
 }
